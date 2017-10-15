@@ -1,0 +1,69 @@
+import turtle as t
+t.speed(10)
+t.penup()
+t.goto(-320,-260)
+t.pendown()
+t.color('red','red')
+t.begin_fill()
+#画国旗背景
+for i in range(2):
+        t.forward(660)
+        t.left(90)
+        t.forward(440)
+        t.left(90)
+t.end_fill()
+
+def draw_star(center_x,center_y,r):
+    t.setpos(center_x,center_y)
+    pt1=t.pos()
+    t.circle(-r,72)
+    pt2=t.pos()
+    t.circle(-r,72)
+    pt3=t.pos()
+    t.circle(-r,72)
+    pt4=t.pos()
+    t.circle(-r,72)
+    pt5=t.pos()
+#画五角星
+    t.color('yellow','yellow')
+    t.begin_fill()
+    t.goto(pt3)
+    t.goto(pt1)
+    t.goto(pt4)
+    t.goto(pt2)
+    t.goto(pt5)
+    t.end_fill()
+t.penup()
+#大五角星
+p=660/30
+big_center_x=-320+5*p
+big_center_y=-260+440-5*p
+t.goto(big_center_x,big_center_y)
+t.left(90)
+t.forward(3*p)
+t.right(90)
+draw_star(t.xcor(),t.ycor(),3*p)
+#第一个小五角星
+t.goto(-320+10*p,-260+440-2*p)
+t.left(t.towards(big_center_x,big_center_y)-t.heading())
+t.forward(p)
+t.right(90)
+draw_star(t.xcor(),t.ycor(),p)
+#第二个小五角星
+t.goto(-320+12*p,-260+440-4*p)
+t.left(t.towards(big_center_x,big_center_y)-t.heading())
+t.forward(p)
+t.right(90)
+draw_star(t.xcor(),t.ycor(),p)
+#第三个小五角星
+t.goto(-320+12*p,-260+440-7*p)
+t.left(t.towards(big_center_x,big_center_y)-t.heading())
+t.forward(p)
+t.right(90)
+draw_star(t.xcor(),t.ycor(),p)
+#第四个小五角星
+t.goto(-320+10*p,-260+440-9*p)
+t.left(t.towards(big_center_x,big_center_y)-t.heading())
+t.forward(p)
+t.right(90)
+draw_star(t.xcor(),t.ycor(),p)
